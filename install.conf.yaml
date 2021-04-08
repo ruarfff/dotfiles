@@ -2,8 +2,9 @@
 
 - link:
     ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.bash_logout: bash_logout
     ~/.zshrc: zshrc
+    ~/.zsh_aliases: zsh_aliases
+    ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
 
 
