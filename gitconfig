@@ -38,16 +38,16 @@
   added = yellow
   changed = green
   untracked = red
-[branch "master"]
+[branch "main"]
   remote = origin
-  merge = refs/heads/master
+  merge = refs/heads/main
 [branch]
 	autosetuprebase = always
 [remote "origin"]
 	push = HEAD
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+	smudge = gitin smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [filesystem "AdoptOpenJDK|11.0.6|/dev/disk1s1"]
