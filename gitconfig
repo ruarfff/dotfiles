@@ -47,7 +47,7 @@
 	push = HEAD
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = gitin smudge -- %f
+	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [filesystem "AdoptOpenJDK|11.0.6|/dev/disk1s1"]
