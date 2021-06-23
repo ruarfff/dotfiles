@@ -3,13 +3,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
 export DEFAULT_USER="$(whoami)"
-
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
+ZSH_DISABLE_COMPFIX=true
 COMPLETION_WAITING_DOTS="true"
 ENABLE_CORRECTION="true"
 
@@ -46,21 +46,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# Node
-export NO_PROXY=download.cypress.io
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export NODE_PATH="$(which node)"
-
-npm config delete prefix
-npm config set prefix "$NVM_DIR/versions/node/$(node --version)"
-
 # Java
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 
 # Ruby
-
 export GEM_HOME="$HOME/.gem"
 export PATH="/usr/local/opt/ruby/bin:$GEM_HOME/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
