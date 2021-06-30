@@ -1,4 +1,4 @@
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -41,8 +41,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin:$PATH"
 
 # Python
-export PATH=$(pyenv root)/shims:$PATH
+
 if command -v pyenv 1>/dev/null 2>&1; then
+  export PATH=$(pyenv root)/shims:$PATH
   eval "$(pyenv init -)"
 fi
 
@@ -62,4 +63,5 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+eval "$(starship init zsh)"
 
