@@ -41,4 +41,14 @@ Update the file as normal using either the symlink or directly in the `.dotfiles
 
 At a minimum you need [zsh](http://zsh.sourceforge.net/Doc/Release/zsh_toc.html) and the accompanying framework [oh my zsh](https://ohmyz.sh/). I do not use bash directly in this setup.
 
-There are a bunch of other tools referenced in this setup but the source of truth for that in the dotfiles rather than this readme. This setup will still work even if none of those tools are installed.
+There are a bunch of other tools referenced in this setup but the source of truth for that in the dotfiles rather than this readme. This setup will mostly work even if none of those tools are installed but the aliases will likely cause issues.
+
+Here is a list at the time of writing:
+
+- [neovim](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+- [vscode](https://code.visualstudio.com/)
+- [pyenv](https://github.com/pyenv/pyenv)
+- [sdkman](https://sdkman.io/)
+- [flutter](https://flutter.dev/)
+- [starship](https://starship.rs/)
+
