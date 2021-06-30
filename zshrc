@@ -41,7 +41,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin:$PATH"
 
 # Python
-
 if command -v pyenv 1>/dev/null 2>&1; then
   export PATH=$(pyenv root)/shims:$PATH
   eval "$(pyenv init -)"
@@ -63,5 +62,7 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
-eval "$(starship init zsh)"
-
+# Init starship https://starship.rs/
+if command -v starship 1>/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
