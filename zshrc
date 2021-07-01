@@ -66,3 +66,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 if command -v starship 1>/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
+
+autoload -U compinit
+compinit -i
