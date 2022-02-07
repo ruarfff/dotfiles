@@ -7,12 +7,12 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="miloshadzic"
 
 ZSH_DISABLE_COMPFIX=true
 COMPLETION_WAITING_DOTS="true"
-ENABLE_CORRECTION="true"
-
+ENABLE_CORRECTION="false"
+ 
 plugins=(
   git
   history
@@ -22,6 +22,15 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit
+compinit -i
+
+
+# Private bin
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 
 # zsh_screts is not saved to config repo and must be created
@@ -43,8 +52,10 @@ export PATH="$HOME/dev/flutter/bin:$PATH"
 # Python
 if command -v pyenv 1>/dev/null 2>&1; then
   export PATH=$(pyenv root)/shims:$PATH
+  eval "$(pyenv virtualenv-init -)"
   eval "$(pyenv init -)"
 fi
+export PATH="$HOME/.poetry/bin:$PATH"
 
 # Java
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
@@ -67,5 +78,8 @@ if command -v starship 1>/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
 
-autoload -U compinit
-compinit -i
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
