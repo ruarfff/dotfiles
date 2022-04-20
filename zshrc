@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -12,15 +17,18 @@ ZSH_THEME="miloshadzic"
 ZSH_DISABLE_COMPFIX=true
 COMPLETION_WAITING_DOTS="true"
 ENABLE_CORRECTION="false"
- 
+
 plugins=(
   git
   history
   jsontools
   vscode
   kubectl
+  copyfile
+  macos
+  ssh-agent
 )
-
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
 source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit
@@ -57,6 +65,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH=~/.local/bin:$PATH
 
 # Java
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
@@ -67,12 +76,6 @@ export PATH="/usr/local/opt/ruby/bin:$GEM_HOME/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Init starship https://starship.rs/
 if command -v starship 1>/dev/null 2>&1; then
@@ -87,3 +90,25 @@ export NVM_DIR="$HOME/.nvm"
 # Fly
 export FLYCTL_INSTALL="${HOME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+autoload -U compinit
+compinit -i
+
+#### FIG ENV VARIABLES ####
+[[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+export PATH=$PATH:$HOME/.istioctl/bin
+
+# gcloud only supports python < 3.8
+export CLOUDSDK_PYTHON=~/.pyenv/versions/3.8.11/bin/python
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ruairi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ruairi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ruairi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ruairi/google-cloud-sdk/completion.zsh.inc'; fi
+
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/ruairi/dev/backend-stage-7693ab8c-5e999fe3db06.json"
+
+# GNU
+export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
