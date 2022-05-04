@@ -1,5 +1,5 @@
-# Fig pre block. Keep at the top of this file.
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  # Fig pre block. Keep at the top of this file.
   . "$HOME/.fig/shell/zshrc.pre.zsh"
 fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
