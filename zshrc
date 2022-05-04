@@ -1,6 +1,8 @@
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  echo "Init fig for $TERM_PROGRAM"
   # Fig pre block. Keep at the top of this file.
   . "$HOME/.fig/shell/zshrc.pre.zsh"
+  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
 fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -106,8 +108,7 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/ruairi/dev/backend-stage-7693ab8c-
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  
   # Fig post block. Keep at the bottom of this file.
   . "$HOME/.fig/shell/zshrc.post.zsh"
 fi
