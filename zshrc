@@ -1,5 +1,7 @@
 # Fig pre block. Keep at the top of this file.
-. "$HOME/.fig/shell/zshrc.pre.zsh"
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  . "$HOME/.fig/shell/zshrc.pre.zsh"
+fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -86,11 +88,8 @@ export NVM_DIR="$HOME/.nvm"
 # Fly
 export FLYCTL_INSTALL="${HOME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-autoload -U compinit
-compinit -i
 
-[[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
-
+# Istio
 export PATH=$PATH:$HOME/.istioctl/bin
 
 # gcloud only supports python < 3.8
@@ -107,5 +106,8 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/ruairi/dev/backend-stage-7693ab8c-
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
-# Fig post block. Keep at the bottom of this file.
-. "$HOME/.fig/shell/zshrc.post.zsh"
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+  # Fig post block. Keep at the bottom of this file.
+  . "$HOME/.fig/shell/zshrc.post.zsh"
+fi
