@@ -1,8 +1,5 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -61,7 +58,6 @@ export PATH="$HOME/dev/flutter/bin:$PATH"
 export PATH="$HOME/.pyenv/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   export PATH=$(pyenv root)/shims:$PATH
-  eval "$(pyenv virtualenv-init -)"
   eval "$(pyenv init -)"
 fi
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -93,9 +89,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 autoload -U compinit
 compinit -i
 
-#### FIG ENV VARIABLES ####
 [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
 
 export PATH=$PATH:$HOME/.istioctl/bin
 
@@ -112,3 +106,6 @@ export GOOGLE_APPLICATION_CREDENTIALS="/Users/ruairi/dev/backend-stage-7693ab8c-
 
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"
