@@ -1,8 +1,9 @@
+# Fig pre block. Keep at the top of this file.
+. "$HOME/.fig/shell/zshrc.pre.zsh"
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   echo "Init fig for $TERM_PROGRAM"
   # Fig pre block. Keep at the top of this file.
-  . "$HOME/.fig/shell/zshrc.pre.zsh"
-  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+    [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
 fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -94,21 +95,25 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # Istio
 export PATH=$PATH:$HOME/.istioctl/bin
 
-# gcloud only supports python < 3.8
+# gcloud only supports python <= 3.8
 export CLOUDSDK_PYTHON=~/.pyenv/versions/3.8.11/bin/python
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/ruairi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ruairi/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/ruairi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ruairi/google-cloud-sdk/completion.zsh.inc'; fi
-
-export GOOGLE_APPLICATION_CREDENTIALS="/Users/ruairi/dev/backend-stage-7693ab8c-5e999fe3db06.json"
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  
   # Fig post block. Keep at the bottom of this file.
-  . "$HOME/.fig/shell/zshrc.post.zsh"
-fi
+  fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Fig post block. Keep at the bottom of this file.
+. "$HOME/.fig/shell/zshrc.post.zsh"

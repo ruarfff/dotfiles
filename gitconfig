@@ -53,3 +53,5 @@
 [filesystem "AdoptOpenJDK|11.0.6|/dev/disk1s1"]
 	timestampResolution = 10000 nanoseconds
 	minRacyThreshold = 0 nanoseconds
+[init]
+	defaultBranch = main
