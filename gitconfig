@@ -1,6 +1,6 @@
-[user]
-	name = Ruairi O Brien
-	email = ruairitobrien@gmail.com
+# [user]
+# Using environment variables to configure user
+
 [core]
 	excludesfile = ~/.gitignore
 [push]
