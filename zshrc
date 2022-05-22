@@ -98,11 +98,14 @@ export PATH=$PATH:$HOME/.istioctl/bin
 # gcloud only supports python <= 3.8
 export CLOUDSDK_PYTHON=~/.pyenv/versions/3.8.11/bin/python
 
+# Enable support for new auth plugin (this will be on by default after v1.25)
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
