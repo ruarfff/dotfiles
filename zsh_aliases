@@ -1,1 +1,2 @@
 alias vim="nvim"
+alias dstp="docker stop $(docker ps -a -q)"
