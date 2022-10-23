@@ -60,11 +60,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin:$PATH"
 
 # Python
-export PATH="$HOME/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  export PATH=$(pyenv root)/shims:$PATH
-  eval "$(pyenv init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=~/.local/bin:$PATH
 
