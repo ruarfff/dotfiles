@@ -2,3 +2,4 @@
 *ignore/
 *.ignore.*
 .vscode/
+.venv/
