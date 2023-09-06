@@ -1,5 +1,5 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   echo "Init fig for $TERM_PROGRAM"
   # Fig pre block. Keep at the top of this file.
@@ -109,13 +109,37 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Fig post block. Keep at the bottom of this file.
   fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
+export PATH="/Users/ruairi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+export PATH="$PATH:/Users/ruairi/.dotnet/tools"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/ruairi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/ruairi/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/ruairi/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/ruairi/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export C_INCLUDE_PATH=/opt/homebrew/Cellar/librdkafka/2.2.0/include
+export LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/2.2.0/lib
+
+export GODOT4="/Applications/Godot_mono.app/Contents/MacOS/Godot"
+
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

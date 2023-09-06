@@ -1,3 +1,4 @@
 alias vim="nvim"
 alias vpn_stop="sudo launchctl unload /Library/LaunchDaemons/com.cisco.anyconnect.vpnagentd.plist"
 alias vpn_start="sudo launchctl load /Library/LaunchDaemons/com.cisco.anyconnect.vpnagentd.plist"
+alias code="code-insiders"
