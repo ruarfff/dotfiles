@@ -3,7 +3,7 @@
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   echo "Init fig for $TERM_PROGRAM"
   # Fig pre block. Keep at the top of this file.
-    [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
 fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -36,12 +36,10 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit
 compinit -i
 
-
 # Private bin
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
-
 
 # zsh_screts is not saved to config repo and must be created
 for file in ~/.{zsh_secrets,zsh_aliases}; do
@@ -84,8 +82,8 @@ fi
 
 # Node
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Fly
 export FLYCTL_INSTALL="${HOME}/.fly"
@@ -110,28 +108,28 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  # Fig post block. Keep at the bottom of this file.
-  fi
+# Fig post block. Keep at the bottom of this file.
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/ruairi/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export PATH="$PATH:/Users/ruairi/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ruairi/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/Users/ruairi/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ruairi/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/ruairi/miniconda3/bin:$PATH"
-    fi
+  if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "$HOME/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="$HOME/miniconda3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
