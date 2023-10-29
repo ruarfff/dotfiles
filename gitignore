@@ -2,3 +2,5 @@
 *ignore/
 *.ignore.*
 .vscode/
+.venv/
+.pytest_cache/

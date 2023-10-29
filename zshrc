@@ -1,9 +1,9 @@
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   echo "Init fig for $TERM_PROGRAM"
   # Fig pre block. Keep at the top of this file.
-    [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
+  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
 fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -37,12 +37,10 @@ source $ZSH/oh-my-zsh.sh
 autoload -U compinit
 compinit -i
 
-
 # Private bin
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+  PATH="$HOME/.local/bin:$PATH"
 fi
-
 
 # zsh_screts is not saved to config repo and must be created
 for file in ~/.{zsh_secrets,zsh_aliases}; do
@@ -61,11 +59,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin:$PATH"
 
 # Python
-export PATH="$HOME/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  export PATH=$(pyenv root)/shims:$PATH
-  eval "$(pyenv init -)"
-fi
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=~/.local/bin:$PATH
 
@@ -86,8 +83,8 @@ fi
 
 # Node
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Fly
 export FLYCTL_INSTALL="${HOME}/.fly"
@@ -117,11 +114,35 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Fig post block. Keep at the bottom of this file.
-  fi
+fi
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('~/miniconda3/bin/conda' 'shell.zsh' 'hook' 2>/dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+    . "$HOME/miniconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="$HOME/miniconda3/bin:$PATH"
+  fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export C_INCLUDE_PATH=/opt/homebrew/Cellar/librdkafka/2.2.0/include
+export LIBRARY_PATH=/opt/homebrew/Cellar/librdkafka/2.2.0/lib
+
+export GODOT4="/Applications/Godot_mono.app/Contents/MacOS/Godot"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
@@ -132,3 +153,4 @@ export PATH="$HOME/.rd/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
