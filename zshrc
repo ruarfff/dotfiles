@@ -1,10 +1,6 @@
 # Fig pre block. Keep at the top of this file.
+[[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
-  echo "Init fig for $TERM_PROGRAM"
-  # Fig pre block. Keep at the top of this file.
-  [[ -s ~/.fig/fig.sh ]] && source ~/.fig/fig.sh
-fi
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
