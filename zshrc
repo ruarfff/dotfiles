@@ -21,6 +21,7 @@ COMPLETION_WAITING_DOTS="true"
 ENABLE_CORRECTION="false"
 
 plugins=(
+  docker
   git
   history
   jsontools
@@ -110,7 +111,11 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 # GNU
 export PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 
-if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then  
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Fig post block. Keep at the bottom of this file.
   fi
 
@@ -120,3 +125,10 @@ export PATH="$HOME/.rd/bin:$PATH"
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+
+# bun completions
+[ -s "${HOME}/.bun/_bun" ] && source "${HOME}/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
